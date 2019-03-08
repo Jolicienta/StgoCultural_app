@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="<%#= root_path %>">Stgo Cultural</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+
+
+
+        <% if user_signed_in? %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-item nav-link active' %>
+        <% else %>
+          <%= link_to 'Login', new_user_session_path, class: 'nav-item nav-link active' %>
+          <%= link_to 'Regístrate', new_user_registration_path, class: 'nav-item nav-link active' %>
+        <% end %>
+      </div>
+
+      <span class="navbar-text" style="display: inline-block; margin-left: 1em;">
+
+        <% if user_signed_in? %>
+          <a href="<%= edit_user_registration_path %>"><i class="fas fa-user"></i> Bienvenido <%= current_user.name %>!</a>
+        <% end %>
+      </span>
+    </div>
+    <form class="form-inline" style="display: inline-block; margin-left: 1em; left: 0;">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+</nav>
