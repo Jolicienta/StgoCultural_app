@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<!-- <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -34,7 +34,7 @@
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
-<% end %>
+<% end %> -->
 
 <br><br><br>
 <div class="container text-center">
@@ -58,6 +58,16 @@
   <hr>
 
   <h3>MIS EVENTOS</h3>
+
+  <ul>
+    <% @user.events.each do |event| %>
+    <li>
+      <%= image_tag event.pic, style:'width: 100px; height: auto;' %>
+      <%= event.title %>
+      <%= link_to 'Editar', edit_event_path(event), class:'btn btn-success' %>
+    </li>
+    <% end %>
+  </ul>
 
 </div>
 

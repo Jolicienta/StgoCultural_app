@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= @event.title %>
+</p>
+
+<p>
+  <%= image_tag @event.flyer %>
+</p>
+
+<p>
+  <%= @event.content %>
+</p>
+
+<p>
+  <%= @event.user.email %>
+</p>
+
+<p>
+  <strong>Datetime:</strong>
+  <%= @event.datetime %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @event.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @event.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
