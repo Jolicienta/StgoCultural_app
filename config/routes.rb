@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'users/index'
   resources :events
 
   devise_for :users, controllers: {

@@ -19,7 +19,13 @@
       <span class="navbar-text" style="display: inline-block; margin-left: 1em;">
 
         <% if user_signed_in? %>
-          <a href="<%= edit_user_registration_path %>"><i class="fas fa-user"></i> Bienvenido <%= current_user.name %>!</a>
+          <a href="<%= edit_user_registration_path %>"><i class="fas fa-user"></i>
+            <% if current_user.is_female? %>
+              Bienvenida <%= current_user.nickname %>!
+            <% else %>
+              Bienvenido <%= current_user.nickname %>!
+            <% end %>
+          </a>
         <% end %>
       </span>
     </div>

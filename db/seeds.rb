@@ -9,6 +9,6 @@ Event.destroy_all
     datetime: Faker::Date.between(2.days.ago, Date.today),
     latitude: (i+1).to_f,
     longitude: (i+1).to_f,
-    user_id: 1,
+    user_id: 8,
   )
 end

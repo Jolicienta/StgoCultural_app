@@ -8,13 +8,36 @@
         <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="field">
-          <%= f.label :name %><br />
+          <%= f.label :nombre %><br />
           <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :apellido %><br />
+          <%= f.text_field :lastname, autocomplete: "lastname" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :nickname %><br />
+          <%= f.text_field :nickname, autocomplete: "nickname" %>
         </div>
 
         <div class="field">
           <%= f.label :email %><br />
           <%= f.email_field :email, autocomplete: "email" %>
+        </div><br />
+
+        <div>
+          <%= f.label :género %><br />
+          <%= f.check_box :is_female, {}, true %> <%= f.label :is_female, "Femenino" %>
+        </div>
+        <div>
+          <%= f.check_box :is_female, {}, false %> <%= f.label :is_female, "Masculino" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :Nacimiento %><br />
+          <%= f.date_select :date_of_birth %>
         </div>
 
         <div class="field">

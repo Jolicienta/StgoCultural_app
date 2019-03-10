@@ -15,6 +15,7 @@
               <div class="card-body">
                 <h5 class="card-title"><%= event.title %></h5>
                 <%= link_to 'Ir al Evento', event_path(event), class:'btn btn-primary' %>
+                <p>Creado por <%= current_user.name %> <%= current_user.lastname %></p>
               </div>
             </div>
           </div>
