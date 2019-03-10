@@ -21,13 +21,24 @@
     <!-- <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> -->
 
-    <!-- <div class="container" style="min-height: 100%; height: auto !important; height: 100%; margin: 0 auto -4em; position: bottom;"> -->
-        <%= yield %>
-    <!-- </div> -->
+          <%= yield %>
 
-    <br><br>
+      <br><br>
+
     <!-- footer -->
     <%= render 'shared/footer' %>
+
+    <style media="screen">
+      html {
+        min-width: 100%;
+        min-height: 100%;
+        position: relative;
+      }
+      body {
+        margin: 0;
+        margin-bottom: 40px;
+      }
+    </style>
 
     <!-- CDN JQuery -->
     <script

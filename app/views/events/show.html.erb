@@ -1,35 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="container text-center">
+  <div class="row">
+    <div class="col col-md-10 text-left">
 
-<p>
-  <%= @event.title %>
-</p>
+      <div class="col-sm-12 text-center">
+        <h3><%= @event.title %></h3>
 
-<p>
-  <%= image_tag @event.flyer %>
-</p>
+        <%= image_tag @event.flyer %>
+      </div>
+      <br>
+      <%= @event.content %>
+      <p>
+        <p><%= @event.user.email %></p>
+        <p>
+          <strong>Datetime:</strong>
+          <%= @event.datetime %>
+        </p>
+      <!-- <strong>Latitude:</strong>
+      <%#= @event.latitude %>
+      <strong>Longitude:</strong>
+      <%#= @event.longitude %> -->
 
-<p>
-  <%= @event.content %>
-</p>
+      <%= link_to 'Edit', edit_event_path(@event) %> |
+      <%= link_to 'Back', events_path %>
 
-<p>
-  <%= @event.user.email %>
-</p>
+    </div>
 
-<p>
-  <strong>Datetime:</strong>
-  <%= @event.datetime %>
-</p>
+  </div>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @event.latitude %>
-</p>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @event.longitude %>
-</p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+</div>
