@@ -10,6 +10,8 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
+    @comments = Comment.order('id DESC')
+    @comment = Comment.new
   end
 
   # GET /events/new

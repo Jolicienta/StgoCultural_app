@@ -115,6 +115,8 @@
       <div class="row">
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
+          <div class="accordion" id="accordionExample">
+            <div class="card">
           <div class="card">
             <div class="card-header" id="headingThree">
               <h2 class="mb-0">
@@ -126,11 +128,12 @@
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
               <div class="card-body">
                 <table class="table">
-                  <th><%= link_to 'Nuevo Evento', new_event_path, method: :delete, class:'btn btn-info' %></th>
-                  <% @user.events.each do |event| %>
+                  <th><%= link_to 'Nuevo Event', new_event_path, class:'btn btn-dark' %></th>
+                  <% @user.hosted_events.each do |event| %>
                   <tr>
                     <td><%= image_tag event.pic, style:'width: 100px; height: auto;' %></td>
-                    <td><%= event.title %></td>
+                    <td><%= link_to event.title, event_path(event)%></td>
+
                     <td><%= link_to 'Editar', edit_event_path(event), class:'btn btn-success' %></td>
                     <td><%= link_to 'Eliminar', event_path(event), method: :delete, class:'btn btn-danger' %></td>
                   </tr>
@@ -139,16 +142,20 @@
               </div>
             </div>
           </div>
+          </div>
+          </div>
+
         </div>
       </div>
     </div>
   </div>
   <br><br>
 
-  <p style="display: inline-block;">
     <h5>Cancel my account</h5>
+    <p style="display: inline-block;">
     Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
-  </p>
+    </p>
+
   <%= link_to "Back", :back %>
 
 </div>

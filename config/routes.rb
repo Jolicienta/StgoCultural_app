@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'users/index'
-  resources :events
+  # get 'users/index'
+
+  resources :events do
+    resources :comments
+  end
+
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -9,6 +13,4 @@ Rails.application.routes.draw do
   }
 
   root 'events#index'
-
-
 end
