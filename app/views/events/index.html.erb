@@ -1,21 +1,21 @@
 <%= render 'shared/carousel' %>
 <div class="container">
   <div class="text-center">
-    <h1><strong>En Cartelera</strong></h1>
-    <h5>PRÓXIMOS EVENTOS</h5>
-  </div>
+    <h1 class="glow">En Cartelera</h1>
+    <h5><strong>PRÓXIMOS EVENTOS</strong></h5>
+  </div><br>
 
   <div class="row justify-content-md-center">
     <div class="col-md-10">
       <div class="row">
-        <% @events.each do |event| %>
+        <% @events.order('id DESC').each do |event| %>
           <div class="col-xs-12 col-sm-6  col-md-6 col-lg-4" style="margin-bottom: 1em;">
             <div class="card">
               <img src="<%= event.pic %>" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title"><%= event.title %></h5>
-                <%= link_to 'Ir al Evento', event_path(event), class:'btn btn-primary' %>
                 <p>Creado por <%= current_user.name %> <%= current_user.lastname %></p>
+                <%= link_to 'Ir al Evento', event_path(event), class:'btn btn-dark' %>
               </div>
             </div>
           </div>
@@ -30,3 +30,28 @@
   <br>
 
 </div>
+
+<style>
+  h5 {
+    color: #e60073;
+  }
+
+.glow {
+  font-size: 60px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+</style>
