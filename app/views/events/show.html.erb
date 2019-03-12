@@ -53,7 +53,7 @@
                         <table class="table text-left">
                           <% @comments.each do |comment| %>
                           <tr>
-                            <th><%= link_to comment.user.nickname, edit_user_registration_path %> :</th>
+                            <th><%= link_to comment.user.nickname, profile_path %> :</th>
                             <td>
                               <%= comment.content %>
                             </td>

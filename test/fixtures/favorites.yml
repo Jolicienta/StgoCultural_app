@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  assist: false
+  user: one
+  event: one
+
+two:
+  assist: false
+  user: two
+  event: two

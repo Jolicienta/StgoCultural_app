@@ -1,0 +1,10 @@
+<div class="container">
+  <tbody style= "text-align: center;">
+      <% @favorites.each do |favorite| %>
+      <tr>
+        <td><%= favorite %></td>
+        <td><%#= favorite.event.datetime %></td>
+        <td><%#= favorite.event.title %></td>
+      </tr>
+      <% end %>
+</div>
