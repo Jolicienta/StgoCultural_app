@@ -9,8 +9,8 @@ Event.destroy_all
     datetime: Faker::Date.between(2.days.ago, Date.today),
     latitude: (i+1).to_f,
     longitude: (i+1).to_f,
-    user_id: 8,
+    user_id: 9,
   )
 end
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
