@@ -12,3 +12,5 @@ Event.destroy_all
     user_id: 8,
   )
 end
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
