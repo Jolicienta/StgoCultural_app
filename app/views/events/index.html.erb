@@ -14,7 +14,7 @@
               <img src="<%= event.pic %>" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title"><%= event.title %></h5>
-                <p>Creado por <%= current_user.name %> <%= current_user.lastname %></p>
+                <p>Creado por <%= event.user.name %> <%= event.user.lastname %></p>
                 <%= link_to 'Ir al Evento', event_path(event), class:'btn btn-dark' %>
                 <%= link_to 'Favoritos', event_favorites_path(event), class: "btn btn-primary", method: :post %>
               </div>

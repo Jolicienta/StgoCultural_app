@@ -9,9 +9,9 @@
           <img src="https://pipelinepros.org/wp-content/uploads/2017/03/Missing-Headshot-Avatar-200x200.png" alt="..." class="img-thumbnail"><%= current_user.photo %>
         </div>
         <div class="col-sm-8">
-          <%= current_user.bio %>
-          <h3 class="text-center"><%= current_user.name %> <%= current_user.lastname %></h3>
-          <h5 class="text-center">"<%= current_user.nickname %>"</h5>
+          <%= @user.bio %>
+          <h3 class="text-center"><%= @user.name %> <%= @user.lastname %></h3>
+          <h5 class="text-center">"<%= @user.nickname %>"</h5>
           <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend porta porta. Nam vestibulum augue mollis lacus pulvinar, et mollis elit posuere. Suspendisse feugiat mattis elit, eget pharetra quam placerat a. Aenean ut enim sapien. Proin posuere convallis metus a scelerisque. Praesent enim nibh, condimentum ut faucibus vel, pulvinar vitae quam. Donec sit amet blandit tellus, at volutpat mi. Nam blandit lectus odio. Pellentesque ut lacus eu nibh pulvinar rutrum.Donec volutpat tempor sodales.</p>
         </div>
       </div>
@@ -41,8 +41,7 @@
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                   <div class="card-body">
                     <table class="table">
-                      <th><%= link_to 'Nuevo Event', new_event_path, class:'btn btn-dark' %></th>
-                      <% current_user.hosted_events.each do |event| %>
+                      <% @user.hosted_events.each do |event| %>
                       <tr>
                         <td><%= image_tag event.pic, style:'width: 100px; height: auto;' %></td>
                         <td><%= link_to event.title, event_path(event)%></td>
@@ -61,9 +60,49 @@
       </div>
     </div>
   </div>
+</div>
+<div class="text-center">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+          <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      FAVORITOS
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div class="card-body">
+                    <table class="table">
+                      <% @user.favorites.each do |favorite| %>
+                      <tr>
+                        <td><%= image_tag favorite.event.pic, style:'width: 100px; height: auto;' %></td>
+                        <td><%= link_to favorite.event.title, favorite.event %></td>
+                        <td><%= favorite.event.datetime %></td>
+                      </tr>
+                      <% end %>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-<%= render 'favorites/favoritelist', favorites: current_user.favorites %>
+
+<%#= render 'favorites/favoritelist', favorites: @user.favorites %>
 <%= link_to "Back", :back %>
 <br>
 

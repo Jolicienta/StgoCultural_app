@@ -1,2 +1,14 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="container">
+  <h1>Users#index</h1>
+
+  <ul>
+    <% @users.each do |user| %>
+      <li><%= link_to user.name, user_path(user) %></li>
+    <% end %>
+    <% if @users == current_user %>
+      <li><%= link_to user.name, profile_path %></li>
+    <% end %>
+
+  </ul>
+
+</div>

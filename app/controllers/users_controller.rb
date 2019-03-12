@@ -1,9 +1,20 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   def index
+    @users = User.all
   end
 
-  # def profile
-  #   @user_events = User.find(user: current_user).hosted_events
-  # end
+  def profile
+    # @favorites = User.events
+  end
+
+  def show
+    # @user = User.find[params[:id]]
+  end
+
+  private
+    def set_user
+      @user = User.find(params[:id])
+    end
 
 end

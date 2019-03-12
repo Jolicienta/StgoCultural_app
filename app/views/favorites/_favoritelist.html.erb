@@ -1,10 +1,38 @@
-<div class="container">
-  <tbody style= "text-align: center;">
-      <% @favorites.each do |favorite| %>
-      <tr>
-        <td><%= favorite %></td>
-        <td><%#= favorite.event.datetime %></td>
-        <td><%#= favorite.event.title %></td>
-      </tr>
-      <% end %>
+<div class="text-center">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+          <div class="accordion" id="accordionExample">
+            <div class="card">
+              <div class="card">
+                <div class="card-header" id="headingTwo">
+                  <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      FAVORITOS
+                    </button>
+                  </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                  <div class="card-body">
+                    <table class="table">
+                      <% current_user.favorites.each do |favorite| %>
+                      <tr>
+                        <td><%= image_tag favorite.event.pic, style:'width: 100px; height: auto;' %></td>
+                        <td><%= link_to favorite.event.title, favorite.event %></td>
+                        <td><%= favorite.event.datetime %></td>
+                      </tr>
+                      <% end %>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
